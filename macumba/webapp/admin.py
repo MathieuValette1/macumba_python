@@ -9,8 +9,6 @@ class TemoignageAdmin(admin.ModelAdmin):
     list_display = ("pk", "temoignage")
 
 
-class PersonneAdmin(admin.ModelAdmin):
-    list_display = ("nom", "prenom", "sexe", "dateNaissance", "dateDeces", "lieuNaissance", "lieuDeces")
 
 
 class VictimeStaffAdmin(admin.ModelAdmin):
@@ -49,7 +47,6 @@ class BateauSauvetageAdmin(admin.ModelAdmin):
 
 
 ### Register
-admin.site.register(Personne, PersonneAdmin)
 admin.site.register(Victime, VictimeStaffAdmin)
 admin.site.register(Bateau, BateauAdmin)
 admin.site.register(BateauSauvetage, BateauSauvetageAdmin)

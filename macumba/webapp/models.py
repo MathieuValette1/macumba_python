@@ -19,11 +19,10 @@ class Personne(models.Model):
     sexe = models.CharField(max_length=50, choices=SEXE_CHOICES)
     dateNaissance = models.DateField()
     dateDeces = models.DateField()
-    lieuNaissance = models.DateField()
-    lieuDeces = models.DateField()
+    lieuNaissance = models.CharField(max_length=50)
+    lieuDeces = models.CharField(max_length=50)
 
     temoignage = models.ForeignKey(Temoignage, on_delete=models.CASCADE)
-
 
 class Victime(Personne):
     isEnfant = models.BooleanField()
