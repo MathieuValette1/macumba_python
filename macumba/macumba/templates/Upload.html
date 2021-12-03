@@ -1,4 +1,5 @@
 {% extends "index.html" %}
+{% load crispy_forms_tags %}
 
         {% block content %}
 
@@ -6,15 +7,23 @@
             <div class="col-11">
                 <div class="text-center">
                     <button class="w-25 m-3 rounded">
-                        <img src="images/bateau.svg" class="rounded w-100" alt="bateau">
+                        <img src="../static/images/bateau.svg" class="rounded w-100" alt="bateau">
                     </button>
                     <button class="w-25 m-3 rounded">
-                        <img src="images/bouee.svg" class="rounded w-100" alt="bouee">
+                        <img src="../static/images/bouee.svg" class="rounded w-100" alt="bouee">
                     </button>
                     <button class="w-25 m-3 rounded">
-                        <img src="images/personne.svg" class="rounded w-100" alt="personne">
+                        <img src="../static/images/personne.svg" class="rounded w-100" alt="personne">
                     </button>
                 </div>
             </div>
         </div>
+<div class="row">
+    <div class="col">
+        <form method="post">
+            {% csrf_token %}
+        {{ formVictime|crispy }}
+        </form>
+    </div>
+</div>
 {% endblock %}
