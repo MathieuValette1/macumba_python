@@ -3,19 +3,18 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta charset="UTF-8" />
-        <title>Page Accueil</title>
+        <title>Rechercher</title>
     </head>
     <body>
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link recherche" aria-current="page" href="#">Recherche</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link upload" href="#">Upload</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link login" href="#">Connexion</a>
-            </li>
-        </ul>
+    {% include '_nav.html' %}
+
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">Rechercher</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+            </div>
+        </div>
     </body>
 </html>
