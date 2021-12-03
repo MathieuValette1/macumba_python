@@ -1,3 +1,9 @@
 /venv
 /.idea
 macumba/macumba/db.sqlite3
+.idea
+macumba/macumba/__pycache__/
+macumba/webapp/__pycache__/
+macumba/webapp/migrations/__pycache__/
+.idea/macumba_python.iml
+.idea/misc.xml
