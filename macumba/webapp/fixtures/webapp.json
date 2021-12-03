@@ -1,0 +1,134 @@
+[
+  {
+    "model": "webapp.personne",
+    "pk": 1,
+    "fields": {
+      "nom" :"Lavy" ,
+        "prenom" :"Davan" ,
+        "sexe" :"Homme" ,
+        "dateNaissance" :"1974-05-12" ,
+        "dateDeces" :"1974-05-12" ,
+        "lieuNaissance" :"Bourg-Palette" ,
+        "lieuDeces" :"Castres",
+      "temoignage": 8
+    }
+
+  },
+  {
+    "model": "webapp.personne",
+    "pk": 2,
+    "fields": {
+      "nom" :"Defre" ,
+        "prenom" :"Clementine" ,
+        "sexe" :"Femme" ,
+        "dateNaissance" :"1974-05-12" ,
+        "dateDeces" :"1974-05-12" ,
+        "lieuNaissance" :"Bourg-Palette" ,
+        "lieuDeces" :"Castres",
+      "temoignage": 8
+    }
+
+  },
+  {
+   "model" : "webapp.victime",
+   "pk" : 1,
+   "fields" : {
+
+        "isEnfant" : "False" ,
+        "isAdo" : "False" ,
+        "isAlive" : "False"
+
+
+   }},
+
+{
+    "model" : "webapp.sauveteur",
+    "pk" : 2,
+    "fields" : {
+
+         "poste" : "Corsaire Dunkerquois",
+         "biographie" : "C'etait un bon gars en sah",
+        "decoration" : 5,
+      "images": [6]
+
+    }
+},
+  {
+    "model" : "webapp.bateau",
+    "pk" : 3,
+    "fields" : {
+         "nom" :"Bercaille" ,
+         "description" :"Un bateau vachement chouette" ,
+      "isBateauSauvetage": "True",
+      "type": "Moteur",
+      "modele": "Pneumatique",
+    "dimension": 9
+    }},
+    {
+    "model" : "webapp.bateausauvetage",
+    "pk" : 3,
+    "fields" : {
+
+         "affectation":"La Manche" ,
+         "constructeur" :"Citroen" ,
+         "dateMiseEau" :"1974-12-01" ,
+         "essais" :"12" ,
+         "finService" :"1995-05-14" ,
+         "images" : [6],
+      "sauvetages": [7],
+      "personnes": [2]
+    }},
+
+  {
+    "model" : "webapp.decoration",
+    "pk" : 5,
+    "fields" : {
+        "date" : "1924-12-01",
+        "titre" : "Legion d'honneur"
+    }
+
+}
+,
+
+{
+    "model" : "webapp.image",
+    "pk" : 6,
+    "fields" : {
+        "url" : "imagerandom.jpg",
+        "legende" : "Une Image Random"
+    }
+
+},
+
+{
+    "model" : "webapp.sauvetage",
+    "pk" : 7,
+    "fields" : {
+        "date" : "1974-05-12",
+        "description" : "Le corsaire Jan Renau a mliraculeusement sauvé un jeune homme de trente ans de la noyade. Son bateau, un petit canot, a coulé dans la tempête.",
+        "sauvetageIndividuel" : "True",
+        "temoignages" :[8],
+        "personnes": [1]
+
+    }
+},
+
+{
+    "model" : "webapp.temoignage",
+    "pk" : 8,
+    "fields" :{
+        "temoignage" : "J'ai vu l'Homme seul à la mer, son bateau en miette, je n'ai pas hésité une seule seconde à plonger."
+    
+    }
+},
+  {
+    "model": "webapp.dimension",
+    "pk": 9,
+    "fields": {
+      "largeur": 20,
+      "longueur": 25,
+      "poids": 150,
+      "tirantEau": 5
+    }
+  }
+]
