@@ -58,6 +58,13 @@ class Sauvetage(models.Model):
     personnes = models.ManyToManyField(Personne)
 
 
+class Dimension(models.Model):
+    largeur = models.FloatField()
+    longueur = models.FloatField()
+    poids = models.FloatField()
+    tirantEau = models.FloatField()
+
+
 class Bateau(models.Model):
     VOILE = "Voile"
     RAME = "Rame"
@@ -94,13 +101,10 @@ class Bateau(models.Model):
     images = models.ManyToManyField(Image)
     sauvetages = models.ManyToManyField(Sauvetage)
     personnes = models.ManyToManyField(Personne)
+    dimension = models.OneToOneField(Dimension, on_delete=models.CASCADE)
 
 
-class Dimension(models.Model):
-    largeur = models.FloatField()
-    longueur = models.FloatField()
-    poids = models.FloatField()
-    tirantEau = models.FloatField()
+
 
 
 class BateauSauvetage(Bateau):
@@ -110,4 +114,4 @@ class BateauSauvetage(Bateau):
     essais = models.CharField(max_length=50)
     finService = models.DateField()
 
-    dimension = models.OneToOneField(Dimension)
+
