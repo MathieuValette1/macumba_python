@@ -1,5 +1,8 @@
 from django.db import models
 
+class Temoignage(models.Model):
+    temoignage = models.CharField(max_length=2000)
+
 
 class Personne(models.Model):
     HOMME = "Homme"
@@ -17,6 +20,9 @@ class Personne(models.Model):
     dateDeces = models.DateField()
     lieuNaissance = models.DateField()
     lieuDeces = models.DateField()
+
+    temoignage = models.ForeignKey(Temoignage, on_delete=models.CASCADE)
+
 
 
 class Victime(Personne):
@@ -82,10 +88,13 @@ class BateauSauvetage(Bateau):
     finService = models.DateField()
 
 
+
 class Sauvetage(models.Model):
     date = models.DateField()
     description = models.CharField(max_length=1000)
     sauvetageIndividuel = models.BooleanField()
+
+    temoignages = models.ManyToManyField(Temoignage)
 
 class Dimension(models.Model):
     largeur = models.FloatField()
@@ -93,8 +102,8 @@ class Dimension(models.Model):
     poids = models.FloatField()
     tirantEau = models.FloatField()
 
-class Temoignage(models.Model):
-    temoignage = models.CharField(max_length=2000)
+
+
 
 
 
