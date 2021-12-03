@@ -6,6 +6,7 @@ from .forms import *
 
 
 def index(request):
+
     return render(request, "index.html")
 
 def uploads(request):
@@ -16,3 +17,6 @@ def uploads(request):
         sauveteurForm = SauveteurForm()
         bateauForm = BateauForm()
     return render(request, "Upload.html",{'formVictime':victimeForm,'sauveteurForm':sauveteurForm,'bateauForm':bateauForm,})
+
+def reno(request):
+    return render(request, "clementine.html")
