@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Temoignage(models.Model):
     temoignage = models.CharField(max_length=2000)
 
@@ -24,19 +25,20 @@ class Personne(models.Model):
     temoignage = models.ForeignKey(Temoignage, on_delete=models.CASCADE)
 
 
-
 class Victime(Personne):
     isEnfant = models.BooleanField()
     isAdo = models.BooleanField()
     isAlive = models.BooleanField()
 
+
 class Decoration(models.Model):
     date = models.DateField()
     titre = models.CharField(max_length=50)
 
+
 class Image(models.Model):
     url = models.CharField(max_length=200)
-    legende = models.CharField(max_length = 200)
+    legende = models.CharField(max_length=200)
 
 
 class Sauveteur(Personne):
@@ -45,6 +47,16 @@ class Sauveteur(Personne):
     decoration = models.ForeignKey(Decoration, on_delete=models.CASCADE)
 
     images = models.ManyToManyField(Image)
+
+
+class Sauvetage(models.Model):
+    date = models.DateField()
+    description = models.CharField(max_length=1000)
+    sauvetageIndividuel = models.BooleanField()
+
+    temoignages = models.ManyToManyField(Temoignage)
+    personnes = models.ManyToManyField(Personne)
+
 
 class Bateau(models.Model):
     VOILE = "Voile"
@@ -64,7 +76,7 @@ class Bateau(models.Model):
     GOELETTE = "Goelette"
     PNEUMATIQUE = "Pneumatique"
 
-    MODELE_CHOICES =  [
+    MODELE_CHOICES = [
         (CANOT, "Canot"),
         (CORVETTE_DE_PILOTAGE, "Corvette de pilotage"),
         (REMORQUEUR, "Remorqueur"),
@@ -77,7 +89,18 @@ class Bateau(models.Model):
     description = models.CharField(max_length=1000)
     isBateauSauvetage = models.BooleanField(max_length=50)
     type = models.CharField(max_length=50, choices=TYPE_CHOICES)
-    modèle = models.CharField(max_length=50, choices=MODELE_CHOICES)
+    modele = models.CharField(max_length=50, choices=MODELE_CHOICES)
+
+    images = models.ManyToManyField(Image)
+    sauvetages = models.ManyToManyField(Sauvetage)
+    personnes = models.ManyToManyField(Personne)
+
+
+class Dimension(models.Model):
+    largeur = models.FloatField()
+    longueur = models.FloatField()
+    poids = models.FloatField()
+    tirantEau = models.FloatField()
 
 
 class BateauSauvetage(Bateau):
@@ -87,36 +110,4 @@ class BateauSauvetage(Bateau):
     essais = models.CharField(max_length=50)
     finService = models.DateField()
 
-
-
-class Sauvetage(models.Model):
-    date = models.DateField()
-    description = models.CharField(max_length=1000)
-    sauvetageIndividuel = models.BooleanField()
-
-    temoignages = models.ManyToManyField(Temoignage)
-
-class Dimension(models.Model):
-    largeur = models.FloatField()
-    longueur = models.FloatField()
-    poids = models.FloatField()
-    tirantEau = models.FloatField()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    dimension = models.OneToOneField(Dimension)
