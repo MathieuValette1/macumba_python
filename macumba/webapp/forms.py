@@ -6,7 +6,7 @@ from .models import Victime, Sauveteur, Bateau
 class VictimeForm(forms.ModelForm):
     class Meta:
         model = Victime
-        fields = {'isEnfant', 'isAdo', 'isAlive'}
+        fields = '__all__'
         labels = {'isEnfant': ("C'est un enfant ?"), 'isAdo': ("C'est un ado ?"), 'isAlive': ("La victime est en vie ?")}
 
 class SauveteurForm(forms.ModelForm):

@@ -13,4 +13,6 @@ def uploads(request):
         pass
     else:
         victimeForm = VictimeForm()
-    return render(request, "Upload.html",{'victimeForm':victimeForm})
+        sauveteurForm = SauveteurForm()
+        bateauForm = BateauForm()
+    return render(request, "Upload.html",{'formVictime':victimeForm,'sauveteurForm':sauveteurForm,'bateauForm':bateauForm,})

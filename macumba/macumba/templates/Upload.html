@@ -20,10 +20,29 @@
         </div>
 <div class="row">
     <div class="col">
-        <form method="post">
+        <form method="post" class="mt-5 gx-3 gy-2 align-items-center">
             {% csrf_token %}
         {{ formVictime|crispy }}
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+
         </form>
     </div>
+    <div class="col">
+        <form method="post" class="mt-5 gx-3 gy-2 align-items-center">
+            {% csrf_token %}
+        {{ sauveteurForm|crispy }}
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+
+        </form>
+    </div>
+    <div class="col">
+        <form method="post" class="mt-5 gx-3 gy-2 align-items-center">
+            {% csrf_token %}
+        {{ bateauForm|crispy }}
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+
+        </form>
+    </div>
+
 </div>
 {% endblock %}
